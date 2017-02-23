@@ -9,26 +9,28 @@ http.createServer(function(request, response) {
 	var filname = path.join(__dirname, uri);
 	console.log("before all file:" + filname);
 	console.log("before all  dir:" + __dirname);
+	console.log("URL:" + request.url);
 
 	if(request.url === "/Home"){
-		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
+		console.log("Dans Hom");
+		sendFileContent(response, "pages/home.html", "text/html");
 	}
 	else if(request.url === "/About"){
-		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
+		sendFileContent(response, "pages/about.html", "text/html");
 	}
 	else if(request.url === "/Contact"){
-		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
+		sendFileContent(response, "pages/contact.html", "text/html");
 	}
 	else if(request.url === "/Catalogue"){
-		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
+		sendFileContent(response, "pages/portfolio.html", "text/html");
 	}
 	else if(path.extname(filname) == ".js"){
-		sendFileContent(response, "../" + request.url.toString().substring(1), "text/javascript");
+		sendFileContent(response, request.url.toString().substring(1), "text/javascript");
 	}
 	else if(path.extname(filname) == ".css"){
 		console.log("IN CSS :" + filname);
 		console.log("request.url : " + request.url.toString().substring(1));
-		sendFileContent(response,"../"+ request.url.toString().substring(1), "text/css");
+		sendFileContent(response,request.url.toString().substring(1), "text/css");
 	}
 	else{
 		console.log("Requested URL is: " + request.url);
@@ -38,6 +40,7 @@ http.createServer(function(request, response) {
 
 function sendFileContent(response, fileName, contentType){
 	fs.readFile(fileName, function(err, data){
+		console.log(data);
 		if(err){
 			response.writeHead(404);
 			response.write("Not Found!");
