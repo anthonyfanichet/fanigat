@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Node.js",
+  "name": "fanigat",
   "description": "Node;js Static Web Site"",
   "repository": "https://github.com/anthonyfanichet/fanigat",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
+  "keywords": ["node", "static"],
   "image": "heroku/nodejs"
 }
