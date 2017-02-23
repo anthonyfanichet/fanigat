@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+		function check()  {
+				if (document.getElementById('theName').value != "" && document.getElementById('theEmail').value != "" && document.getElementById('theText').value != ""){
+					var link = "mailto:anthony.fanichet@hotmail.fr"
+						+ "?cc=anthony.fanichet@hotmail.fr"
+			             + "&subject=" + escape(document.getElementById('theName').value+ " " + document.getElementById('theEmail').value)
+			             + "&body=" + escape(document.getElementById('theText').value)
+			    ;
+
+			    window.location.href = link;
+				}
+		}</script>
+		<meta charset="ISO-8859-1">
+		<!-- 		import des feuilles de style		-->
+		<link rel="styleSheet" href="style/menu.css" type="text/css" media="screen" />
+		<link rel="styleSheet" href="style/corps.css" type="text/css" media="screen" />
+		<link rel="styleSheet" href="style/contact.css" type="text/css" media="screen" />
+		<title>Contact</title>
+	</head>
+	<body class="bg-img">
+		<h1>Contact</h1>
+		<ul class="menu">
+		  <li><a href="/Home" >Acceuil</a></li>
+		  <li><a href="/About">A propos de nous</a></li>
+		  <li><a href="/Catalogue">Catalogue</a></li>
+		  <li><a href="#">Contact</a></li>
+		  <li class="slider"></li>
+		</ul>
+		<div class="corps">
+			<div id="form-main">
+			  <div id="form-div">
+			    <form class="form" id="form1">
+			      
+			      <p class="name">
+			        <input  id="theName" name="nom" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nom Prenom" value=""/>
+			      </p>
+			      
+			      <p class="email">
+			        <input id="theEmail" name="email" type="text" class="validate[required,custom[email]] feedback-input id="email" placeholder="Email" value=""/>
+			      </p>
+			      
+			      <p class="text">
+			        <textarea id="theText" name="text" class="validate[required,length[6,300]] feedback-input" placeholder="" value=""></textarea>
+			      </p>
+			      
+			      
+			      <div class="submit">
+			        <input type="submit" value="Envoyer" id="button-blue" onclick="check()"/>
+			        <div class="ease"></div>
+			      </div>
+			    </form>
+			  </div>
+		</div>
+		
+		
+	</body>
+</html>
