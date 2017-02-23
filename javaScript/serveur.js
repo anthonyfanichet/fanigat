@@ -11,16 +11,16 @@ http.createServer(function(request, response) {
 	console.log("before all  dir:" + __dirname);
 
 	if(request.url === "/Home"){
-		sendFileContent(response, "../pages/home.html", "text/html");
+		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
 	}
 	else if(request.url === "/About"){
-		sendFileContent(response, "../pages/about.html", "text/html");
+		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
 	}
 	else if(request.url === "/Contact"){
-		sendFileContent(response, "../pages/contact.html", "text/html");
+		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
 	}
 	else if(request.url === "/Catalogue"){
-		sendFileContent(response, "../pages/portfolio.html", "text/html");
+		sendFileContent(response, "../" + request.url.toString().substring(1), "text/html");
 	}
 	else if(path.extname(filname) == ".js"){
 		sendFileContent(response, "../" + request.url.toString().substring(1), "text/javascript");
