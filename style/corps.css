@@ -7,7 +7,7 @@
   line-height: 1.8;
 }
 #circle-shape-example .curve { 
-  width: 30%; height: auto;
+  width: 30%; height: 25%;
   min-width: 150px;
   float: left;
   margin-right:1rem;
