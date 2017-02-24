@@ -12,7 +12,13 @@ http.createServer(function(request, response) {
 	console.log("URL:" + request.url);
 
 	if(request.url === "/Home"){
-		console.log("Dans Hom");
+		console.log("Dans Home par /Home");
+		sendFileContent(response, "pages/home.html", "text/html");
+	}
+	else if(request.url === "/"){
+		console.log("Dans Home par /");
+		request.url = "/Home";
+		console.log(" new URL:" + request.url);
 		sendFileContent(response, "pages/home.html", "text/html");
 	}
 	else if(request.url === "/About"){
@@ -40,7 +46,7 @@ http.createServer(function(request, response) {
 
 function sendFileContent(response, fileName, contentType){
 	fs.readFile(fileName, function(err, data){
-		console.log(data);
+		//console.log(data);
 		if(err){
 			response.writeHead(404);
 			response.write("Not Found!");
